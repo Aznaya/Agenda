@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cadastro</title>
 </head>
-<script language="JavaScript" src="index.js"></script>
+<script language="JavaScript" src="app.js"></script>
 <body>
 <form method="post" action="cadastro.html" onsubmit="return enviarDados();">
     <table>
@@ -13,31 +13,29 @@
             <td><input type="text" name="nome" id="nome"></td>
         </tr>
         <tr>
-            <td>Nick:</td>
-            <td><input type="text" name="nick" id="nick"></td>
+            <td>Numero:</td>
+            <td><input type="text" name="numero" id="numero"></td>
         </tr>
+
         <tr>
-            <td>Senha:</td>
-            <td><input type="password" name="senha" id="senha"></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Cadastrar"></td>
+            <td><input type="submit" value="Cadastrar Contato"></td>
 
         </tr>
     </table>
 </form>
 <script>
+
     function enviarDados() {
         var nome = document.getElementById("nome").value;
-        var nick = document.getElementById("nick").value;
-        var senha = document.getElementById("senha").value;
+        var Numero = document.getElementById("numero").value;
+
         if (nome.length == 0)
             alert('Por Favor digite um nome');
         else {
-            if (senha.length < 6 )
-                alert('Tamanho da senha invalida');
+            if (numero.length == 0 )
+                alert('Por Favor Digite o Numero');
             else {
-                alert('erro');
+                 cadastra(nome,Numero);
 
             }
         }
