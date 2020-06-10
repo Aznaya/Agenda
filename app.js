@@ -1,4 +1,5 @@
 //Conexao com BD MySQL
+
 const mysql = require('mysql');
 var nom = 'lula';
 var num = '171';
@@ -49,3 +50,4 @@ connection.query('SELECT * FROM contato', function(err, rows, fields){
                console.log('erro ao deletar');
           }
         });
+
