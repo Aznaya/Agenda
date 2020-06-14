@@ -4,10 +4,17 @@
   "description": "cursonode",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "debug": "^4.1.1",
     "express": "^4.16.4",
-    "mysql": "^2.17.1"
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
