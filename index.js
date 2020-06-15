@@ -4,11 +4,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const Post = require('./Model/Post');
+const PostFav = require('./Model/fav');
+const PostBloq = require('./Model/bloq');
+const multer = require('./src/config/multer');
 //Config
  //template engine
   app.engine('handlebars',handlebars({defaultLayout: 'main'}));
   app.set('view engine','handlebars');
   app.use(express.static(__dirname + '/views'));
+
   //Body
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
@@ -56,6 +60,20 @@ res.send('Deletado com Sucesso')
 res.send('Erro ao Deletar '+ erro )
    })
 });
+app.get('/desbloquear/:idBloqueados',function (req,res) {
+    PostBloq.destroy({where:{'idBloqueados':req.params.idBloqueados}}).then(function () {
+        res.send('Desbloqueado com sucesso com Sucesso')
+    }).catch(function (erro) {
+        res.send('Erro ao Desbloquear '+ erro )
+    })
+});
+app.get('/desfavoritar/:idFavoritos',function (req,res) {
+    PostFav.destroy({where:{'idFavoritos':req.params.idFavoritos}}).then(function () {
+        res.send('Desfavoritado com Sucesso')
+    }).catch(function (erro) {
+        res.send('Erro ao Desfavoritar '+ erro )
+    })
+});
 app.get('/editar/:idContato',function (req,res) {
 
     Post.findByPk(req.params.idContato)
@@ -84,6 +102,26 @@ app.get('/atualizar/:id',function (req,res) {
         res.send('Editado com sucesso')
     }).catch(function(err){
         console.log(err);
+    })
+});
+app.get('/fav/:idContato/:numero',function (req,res) {
+   PostFav.create({
+       numero_favoritos: req.params.numero,
+       Contato_idContato: req.params.idContato
+   }).then(function () {
+       res.redirect('/favoritos')
+   }).catch(function (erro) {
+       res.send("Houve um erro "+erro)
+   })
+});
+app.get('/bloq/:idContato/:numero',function (req,res) {
+    PostBloq.create({
+        numero_bloqueados: req.params.numero,
+        Contato_idContato: req.params.idContato
+    }).then(function () {
+        res.redirect('/bloqueados')
+    }).catch(function (erro) {
+        console.log("Houve um erro "+erro)
     })
 });
 //inicia o servidor

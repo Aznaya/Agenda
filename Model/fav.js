@@ -1,23 +1,19 @@
 const db = require('./db');
-
-const Post = db.sequelize.define('contato',{
-    idContato:{
+const PostFav = db.sequelize.define('favoritos',{
+    idFavoritos:{
         type: db.Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    nome:{
+
+    numero_favoritos:{
         type: db.Sequelize.STRING
     },
-    numero:{
-        type: db.Sequelize.STRING
-    },
-    foto:{
-        type: db.Sequelize.STRING
+    Contato_idContato:{
+        type: db.Sequelize.INTEGER
     }
 
 
 });
-module.exports = Post;
-
+module.exports = PostFav;

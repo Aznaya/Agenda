@@ -1,11 +1,13 @@
 <h1>Lista de Contatos</h1>
-
+<a href="/Bloqueados" ><button>Bloqueados</button></a>
+<a href="/Favoritos"> <button>Favoritos</button></a>
+<a href="/cadastro"> <button>Cadastrar</button></a>
 {{#each posts}}
 <h2>{{dataValues.nome}}</h2>
     <h2>{{dataValues.numero}}</h2>
     <h2>{{dataValues.foto}}</h2>
 <a href="/editar/{{dataValues.idContato}}"><button>Editar</button></a>
 <a href="/deletar/{{dataValues.idContato}}"> <button>Deletar</button></a>
-<a href="/fav/{{dataValues.idContato}}"><button>Adicionar Favoritos</button></a>
-<a href="/bloq/{{dataValues.idContato}}"> <button>Bloquear</button></a>
+<a href="/fav/{{dataValues.idContato}}/{{dataValues.numero}}"><button>Adicionar Favoritos</button></a>
+<a href="/bloq/{{dataValues.idContato}}/{{dataValues.numero}}"> <button>Bloquear</button></a>
 {{/each}}
