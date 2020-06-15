@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const Post = require('./Model/Post');
 const PostFav = require('./Model/fav');
 const PostBloq = require('./Model/bloq');
-const multer = require('./src/config/multer');
+const multer = require('multer');
+let id;
+//const multerConfig = require("./src/config/multer");
 //Config
  //template engine
   app.engine('handlebars',handlebars({defaultLayout: 'main'}));
@@ -76,28 +77,18 @@ app.get('/desfavoritar/:idFavoritos',function (req,res) {
 });
 app.get('/editar/:idContato',function (req,res) {
 
-    Post.findByPk(req.params.idContato)
-        .then(post => {
-            res.render('editar', {
-                idContato: req.params.idContato,
-                nome: post.Nome,
-                conteudo: post.Numero,
-                foto: post.Foto
-            })
-        })
-        .catch(err => {
-            res.send('Post não encontrado!')
-        })
+    id = req.params.idContato;
+    res.render('editar')
 
 });
-app.get('/atualizar/:id',function (req,res) {
+app.post('/atualizar',function (req,res) {
     Post.update({
            nome: req.body.Nomeedt,
            numero: req.body.Numeroedt,
            foto: req.body.Fotoedt
         },
         {
-            where: { 'id': req.params.idContato }
+            where: { idContato: id }
         }).then(function(){
         res.send('Editado com sucesso')
     }).catch(function(err){
