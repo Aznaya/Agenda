@@ -1,0 +1,10 @@
+<h1>Favoritos</h1>
+
+{{#each posts}}
+
+    <h2>{{dataValues.numero_favoritos}}</h2>
+
+
+    <a href="/desfavoritar/{{dataValues.idFavoritos}}"> <button>Retirar dos Favoritos</button></a>
+
+{{/each}}

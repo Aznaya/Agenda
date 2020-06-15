@@ -1,0 +1,20 @@
+<form action="/atualizar/{{dataValues.idContato}}" method="get">
+    <div>
+
+        <label>Nome*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+        <input type="text" name="Nomeedt"  value="{{dataValue.nome}}" id="nome">
+    </div>
+    <div>
+        <label>Numero</label>
+        <input type="text" name="Numeroedt" id="numero">
+    </div>
+    <div>
+        <label>Foto</label>
+        <input type="text" name="Fotoedt" id="foto">
+    </div>
+    <div  class="form-action-buttons">
+        <input type="submit" value="Editar">
+        <a href="/home"> <input type="submit" value="Listar Contatos"></a>
+    </div>
+
+</form>
