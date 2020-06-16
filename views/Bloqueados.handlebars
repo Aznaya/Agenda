@@ -1,10 +1,20 @@
-<h1>Bloqueados</h1>
+<div>
+    <div class="homeHeader">
+        <h1>Bloqueados</h1>
+    </div>
 
-{{#each posts}}
+    <div class="favBloq">
+        {{#each posts}}
 
-    <h2>{{dataValues.numero_bloqueados}}</h2>
+            <h2>{{dataValues.numero_bloqueados}}</h2>
 
 
-    <a href="/desbloquear/{{dataValues.idBloqueados}}"> <button>Desbloquear</button></a>
+            <a href="/desbloquear/{{dataValues.idBloqueados}}">
+                <button onclick="alert('Contato Desbloqueado')">
+                    Desbloquear
+                </button>
+            </a>
 
-{{/each}}
+        {{/each}}
+    </div>
+</div>

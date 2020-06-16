@@ -1,10 +1,18 @@
-<h1>Favoritos</h1>
+<div>
+    <div class="homeHeader">
+        <h1>Favoritos</h1>
+    </div>
+    <div class="favBloq">
+        {{#each posts}}
 
-{{#each posts}}
+            <h2>{{dataValues.numero_favoritos}}</h2>
 
-    <h2>{{dataValues.numero_favoritos}}</h2>
+            <a href="/desfavoritar/{{dataValues.idFavoritos}}">
+                <button onclick="alert('Contato Retirado')">
+                    Retirar dos Favoritos
+                </button>
+            </a>
 
-
-    <a href="/desfavoritar/{{dataValues.idFavoritos}}"> <button>Retirar dos Favoritos</button></a>
-
-{{/each}}
+        {{/each}}
+    </div>
+</div>

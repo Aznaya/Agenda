@@ -1,13 +1,40 @@
-<h1>Lista de Contatos</h1>
-<a href="/Bloqueados" ><button>Bloqueados</button></a>
-<a href="/Favoritos"> <button>Favoritos</button></a>
-<a href="/cadastro"> <button>Cadastrar</button></a>
-{{#each posts}}
-<h2>{{dataValues.nome}}</h2>
-    <h2>{{dataValues.numero}}</h2>
-    <h2>{{dataValues.foto}}</h2>
-<a href="/editar/{{dataValues.idContato}}"><button>Editar</button></a>
-<a href="/deletar/{{dataValues.idContato}}"> <button>Deletar</button></a>
-<a href="/fav/{{dataValues.idContato}}/{{dataValues.numero}}"><button>Adicionar Favoritos</button></a>
-<a href="/bloq/{{dataValues.idContato}}/{{dataValues.numero}}"> <button>Bloquear</button></a>
-{{/each}}
+<home>
+    <div class="homeHeader">
+        <div>
+            <h1>Lista de Contatos</h1>
+            <a href="/Bloqueados">
+                <button>Bloqueados</button>
+            </a>
+            <a href="/Favoritos">
+                <button>Favoritos</button>
+            </a>
+            <a href="/cadastro">
+                <button>Cadastrar</button>
+            </a>
+        </div>
+
+    </div>
+
+    {{#each posts}}
+        <div class="styleContatos">
+            <h2>{{dataValues.nome}}</h2>
+            <h2>{{dataValues.numero}}</h2>
+            <h2>{{dataValues.foto}}</h2>
+            <div class="bottomContatos">
+                <a href="/editar/{{dataValues.idContato}}">
+                    <button>Editar</button>
+                </a>
+                <a href="/deletar/{{dataValues.idContato}}">
+                    <button onclick="alert('Contato Deletado')">Deletar</button>
+                </a>
+                <a href="/fav/{{dataValues.idContato}}/{{dataValues.numero}}">
+                    <button>Adicionar Favoritos</button>
+                </a>
+                <a href="/bloq/{{dataValues.idContato}}/{{dataValues.numero}}">
+                    <button>Bloquear</button>
+                </a>
+            </div>
+
+        </div>
+    {{/each}}
+</home>

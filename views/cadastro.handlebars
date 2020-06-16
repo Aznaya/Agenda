@@ -1,19 +1,21 @@
-<form action="/adicionar" method="post">
-    <div>
-        <label>Nome*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
-        <input type="text" name="Nome" id="nome">
-    </div>
-    <div>
-        <label>Numero</label>
-        <input type="text" name="Numero" id="numero">
-    </div>
-    <div>
-        <label>Foto</label>
-        <input type="text" name="Foto" id="foto">
-    </div>
-    <div  class="form-action-buttons">
-        <input type="submit" value="Cadastrar">
-       <a href="/home"> <input type="submit" value="Listar Contatos"></a>
-    </div>
-
-</form>
+<home>
+    <form action="/adicionar" method="post">
+        <div>
+            <label>Nome*</label>
+            <label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+            <input type="text" name="Nome" id="nome">
+        </div>
+        <div>
+            <label>Numero</label>
+            <input type="number" name="Numero" id="numero">
+        </div>
+        <div>
+            <label>Foto</label>
+            <input type="text" name="Foto" id="foto">
+        </div>
+        <div class="form-action-buttons">
+            <input type="submit" value="Cadastrar">
+            <a href="/home"> <input type="submit" value="Listar Contatos"></a>
+        </div>
+    </form>
+</home>
