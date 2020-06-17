@@ -17,9 +17,33 @@
 
     {{#each posts}}
         <div class="styleContatos">
-            <h2>{{dataValues.nome}}</h2>
-            <h2>{{dataValues.numero}}</h2>
-            <h2>{{dataValues.foto}}</h2>
+            <div class="styleInfo">
+                <div class="styleInfoForm">
+                    <h2 style="border: solid; padding: 5px">{{dataValues.nome}}</h2>
+                    <h2 style="border: solid; padding: 5px">{{dataValues.numero}}</h2>
+                </div>
+
+                <div>
+                    <img id="foto" src={{dataValues.foto}} style="width: 200px; height: 175px; padding-left: 25px"/>
+                    <script type="text/javascript">
+                        function PreviewImage() {
+                            var oFReader = new FileReader();
+                            oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+                            oFReader.onload = function (oFREvent) {
+                                document.getElementById("uploadPreview").src = oFREvent.target.result;
+                            };
+                        };
+                        var oFReader = new FileReader();
+                        oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+                        oFReader.onload = function (oFREvent) {
+                            document.getElementById("uploadPreview").src = oFREvent.target.result;
+                        };
+                    </script>
+                </div>
+            </div>
+
             <div class="bottomContatos">
                 <a href="/editar/{{dataValues.idContato}}">
                     <button>Editar</button>

@@ -66,6 +66,8 @@ body {
     color: white;
     justify-content: center;
     display: flex;
+    border: solid;
+    padding: 20px;
 }
 
 div.styleContatos {
@@ -73,6 +75,7 @@ div.styleContatos {
     border-radius: 20px;
     padding: 0px 10px 15px 10px;
     margin-top: 10px;
+
 }
 
 div.homeHeader {
@@ -88,6 +91,15 @@ home {
 div.favBloq {
     border: solid 1px;
     border-radius: 20px;
-    padding: 0px 10px 15px 10px;
+    padding: 0px 5px 15px 5px;
     margin-top: 10px;
+}
+
+div.styleInfo {
+    display: flex;
+    padding-top: 10px;
+}
+
+div.styleInfoForm {
+    width: 60%;
 }

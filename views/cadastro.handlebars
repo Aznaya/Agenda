@@ -10,8 +10,24 @@
             <input type="number" name="Numero" id="numero">
         </div>
         <div>
-            <label>Foto</label>
-            <input type="text" name="Foto" id="foto">
+            <img id="uploadPreview" style="width: 200px; height: 175px; border: solid"/>
+            <input id="foto" type="file" name="Foto" onchange="PreviewImage();"/>
+            <script type="text/javascript">
+                function PreviewImage() {
+                    var oFReader = new FileReader();
+                    oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+                    oFReader.onload = function (oFREvent) {
+                        document.getElementById("uploadPreview").src = oFREvent.target.result;
+                    };
+                };
+                var oFReader = new FileReader();
+                oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+                oFReader.onload = function (oFREvent) {
+                    document.getElementById("uploadPreview").src = oFREvent.target.result;
+                };
+            </script>
         </div>
         <div class="form-action-buttons">
             <input type="submit" value="Cadastrar">
